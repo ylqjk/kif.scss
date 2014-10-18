@@ -1,0 +1,21 @@
+%pagination {
+  @extend %clearfix;
+  padding-left: 1px;
+
+  a {
+    @extend %group-base-field;
+  }
+
+  > a {
+    @extend %button-base;
+    @extend %group-base-all-field;
+    @extend %group-base-first-field;
+    @extend %group-base-last-field;
+
+    @include link-selected('%nav-pill-selected');
+  }
+}
+
+@if $style-pagination {
+  .pagination { @extend %pagination; }
+}

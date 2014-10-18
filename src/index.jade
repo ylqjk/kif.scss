@@ -1,0 +1,455 @@
+doctype
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no')
+    title Kif.scss
+    link(rel='stylesheet', href='styles.css')
+  body
+    .wrapper
+      .header.navbar
+        .container
+          h1.navbar-brand
+            a(href='#') Kif.scss
+          ul.nav.navbar-left
+            li
+              a(href='#colors') Colors
+            li
+              a(href='#typography') Typography
+            li
+              a(href='#navs') Navs
+            li
+              a(href='#buttons') Buttons
+            li
+              a(href='#fields') Fields
+            li
+              a(href='#forms') Forms
+            li
+              a(href='#grid') Grid system
+            li
+              a(href='#navbar') Navbar
+            li
+              a(href='#alerts') Alerts
+            li
+              a(href='#pagination') Pagination
+
+      .site
+        .container
+          h2#colors Colors
+          .example.example-colors
+            p
+              span.color-text Text
+              span.color-secondary Secondary text
+              span.color-hint Hint text
+              span.color-divider Divider
+            p
+              span.color-link Link
+              span.color-visited Visited
+
+          h2#typography Typography
+          h3 Headings
+          .example
+            h1 h1. Kif heading <small>Secondary text</small>
+            h2 h2. Kif heading <small>Secondary text</small>
+            h3 h3. Kif heading <small>Secondary text</small>
+            h4 h4. Kif heading <small>Secondary text</small>
+            h5 h5. Kif heading <small>Secondary text</small>
+            h6 h6. Kif heading <small>Secondary text</small>
+          h3 Body copy
+          .example
+            p Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+            p Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+            p Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+          h3 Inline list
+          .example
+            ul.list-inline
+              li Lorem ipsum
+              li Phasellus iaculis
+              li Nulla volutpat
+          h3 Horizontal description
+          .example
+            dl.dl-horizontal
+              dt Description lists
+              dd A description list is perfect for defining terms.
+              dt Euismod
+              dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+              dd Donec id elit non mi porta gravida at eget metus.
+              dt Malesuada porta
+              dd Etiam porta sem malesuada magna mollis euismod.
+              dt Felis euismod semper eget lacinia
+              dd Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+          h2#navs Navs
+          h3 Inline pills
+          .example
+            ul.nav.nav-inline.nav-pills
+              li
+                a.selected(href='#') Home
+              li
+                a(href='#') Profile
+              li
+                a(href='#') Messages
+          h3 Stacked pills
+          .example
+            ul.nav.nav-stacked.nav-pills
+              li
+                a.selected(href='#') Home
+              li
+                a(href='#') Menu
+                ul.nav.nav-stacked.nav-pills
+                  li
+                    a(href='#') Item1
+                  li
+                    a(href='#') Item2
+                  li
+                    a(href='#') Item3
+              li
+                a(href='#') Profile
+              li
+                a(href='#') Messages
+
+          h2#buttons Buttons
+          .example
+            p
+              button.button.button-default button.button
+              a.button.button-default(href='#') a.button
+              button.button.button-default.button-sm button.button
+              a.button.button-default.button-sm(href='#') a.button
+            p
+              button.button.button-default.disabled button.button
+              a.button.button-default.disabled(href='#') a.button
+            p
+              button.button.button-primary button.button
+              a.button.button-primary(href='#') a.button
+            p
+              button.button.button-primary.disabled button.button
+              a.button.button-primary.disabled(href='#') a.button
+            p
+              button.button.button-success button.button
+              a.button.button-success(href='#') a.button
+            p
+              button.button.button-success.disabled button.button
+              a.button.button-success.disabled(href='#') a.button
+            p
+              button.button.button-danger button.button
+              a.button.button-danger(href='#') a.button
+            p
+              button.button.button-danger.disabled button.button
+              a.button.button-danger.disabled(href='#') a.button
+            p
+              button.button button.button
+              a.button(href='#') a.button
+            p
+              button.button.disabled button.button
+              a.button.disabled(href='#') a.button
+            p
+              button.button-link button.button-link
+              a.button-link(href='#') a.button-link
+
+          h2#fields Fields
+          .example
+            p
+              input.field(type='text', placeholder='example')
+            p
+              input.field(type='search', value='disabled', disabled='disabled')
+              span.note.note-success good things :)
+            p
+              input.field(type='email')
+              span.note.note-error bad things :(
+            p
+              textarea.field
+            p
+              select.field
+                option one
+                option two
+                option three
+              input.field(type='text', placeholder='word')
+              button.button ok
+            p
+              select.field.field-sm
+                option one
+                option two
+                option three
+              input.field.field-sm(type='text', placeholder='word')
+              button.button.button-sm ok
+
+          h3 Field group
+          .example
+            p
+              span.field-group
+                button.button.button-default.button-sm One
+                button.button.button-default.button-sm.disabled Two
+                button.button.button-default.button-sm Three
+              button.button.button-default.button-sm Four
+            p
+              a.button.button-default(href='#') One
+              span.field-group
+                a.button.button-default(href='#') Two
+                a.button.button-default.disabled(href='#') Three
+              a.button.button-default(href='#') Four
+            p
+              button.button One
+              span.field-group
+                button.button Two
+                button.button.disabled Three
+                button.button Four
+            p
+              span.field-group
+                a.button(href='#') One
+                a.button.disabled(href='#') Two
+                a.button(href='#') Three
+              a.button(href='#') Four
+            p
+              span.field-group
+                input.field(type='text', placeholder='query?')
+                button.button.button-default Search
+            p
+              span.field-group
+                label.field-col
+                  input.field(type='text', placeholder='query?')
+                label.field-col
+                  button.button.button-default Search
+            p
+              span.field-group
+                select.field.field-sm
+                  option category
+                input.field.field-sm(type='search')
+                button.button.button-default.button-sm Search
+
+              span.field-group.group-sm
+                select.field
+                  option category
+                input.field(type='search')
+                button.button.button-default Search
+            p
+              span.field-row(style='width: 100%')
+                input.field(type='text', placeholder='query?')
+                label.field-col
+                  button.button.button-default Go
+            p
+              span.field-row(style='width: 100%')
+                label.field-col
+                  button.button.button-default Go
+                input.field(type='text', placeholder='query?')
+            p
+              span.field-row(style='width: 100%')
+                label.field-col
+                  button.button.button-default Go
+                input.field(type='text', placeholder='query?')
+                label.field-col
+                  button.button.button-default Go
+            p
+              span.field-row(style='width: 100%')
+                label.field-col
+                  button.button.button-default.button-sm One
+                label.field-col
+                  button.button.button-default.button-sm Two
+                label.field-col
+                  button.button.button-default.button-sm Three
+
+          h2#forms Forms
+          h3 Basic example
+          .example
+            form
+              dl.form
+                dt
+                  label Email address
+                dd
+                  input.field(type='email', placeholder='Enter email')
+              dl.form.form-error
+                dt
+                  label Email address
+                dd
+                  input.field(type='email', placeholder='Enter email')
+                dd.form-notice Bad input :(
+              dl.form
+                dt
+                  label Password
+                dd
+                  input.field(type='password', placeholder='Password')
+                  p Example inline-level help text here.
+              dl.form
+                dt
+                  label Profiles
+                dd
+                  textarea.field
+              hr
+              dl.form
+                dt Checkboxes (list)
+                dd
+                  ul.list-inline
+                    li
+                      label.checkbox
+                        input(type='checkbox')
+                        | 1
+                    li
+                      label.checkbox
+                        input(type='checkbox')
+                        | 2
+                    li
+                      label.checkbox
+                        input(type='checkbox')
+                        | 3
+              dl.form
+                dt Checkboxes (solid)
+                dd
+                  label.checkbox
+                    input(type='checkbox')
+                    | 1
+                  label.checkbox
+                    input(type='checkbox')
+                    | 2
+                  label.checkbox
+                    input(type='checkbox')
+                    | 3
+              dl.form
+                dt Radio buttons
+                dd
+                  ul.list-inline
+                    li
+                      label.radio
+                        input(type='radio')
+                        | 1
+                    li
+                      label.radio
+                        input(type='radio')
+                        | 2
+                    li
+                      label.radio
+                        input(type='radio')
+                        | 3
+              hr
+              p
+                button.button.button-primary(type='submit') Submit
+                span.note Example inline-level help text here.
+
+          h3 Horizontal example
+          .example
+            form.form-inline
+              dl.form
+                dt
+                  label Textfield
+                dd
+                  input.field(type='text', value='Example Value')
+              p
+                button.button.button-default(type='submit') Quicksave
+              dl.form
+                dt
+                  label Example Dropdown
+                dd
+                  select.field
+                    option Choose an option
+                    option Git
+                    option Subversion
+                    option Social Coding
+                    option Beets
+                    option Bears
+                    option Battlestar Galactica
+
+          h2#grid Grid system
+          h3 Stacked to horizontal
+          .example.example-grid
+            .container-fluid
+              .row
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+                .col-sm-1 .col-sm-1
+              .row
+                .col-sm-8 .col-sm-8
+                .col-sm-4 .col-sm-4
+              .row
+                .col-sm-4 .col-sm-4
+                .col-sm-4 .col-sm-4
+                .col-sm-4 .col-sm-4
+              .row
+                .col-sm-6 .col-sm-6
+                .col-sm-6 .col-sm-6
+          h3 Offsetting columns
+          .example.example-grid
+            .container-fluid
+              .row
+                .col-xs-4 .col-xs-4
+                .col-xs-4.col-xs-offset-4 .col-xs-4 .col-xs-offset-4
+              .row
+                .col-xs-3.col-xs-offset-3 .col-xs-3 .col-xs-offset-3
+                .col-xs-3.col-xs-offset-3 .col-xs-3 .col-xs-offset-3
+              .row
+                .col-xs-6.col-xs-offset-3 .col-xs-6 .col-xs-offset-3
+          h3 Nesting columns
+          .example.example-grid
+            .container-fluid
+              .row
+                .col-sm-9
+                  | Level 1: .col-sm-9
+                  .row
+                    .col-sm-6 Level 2: .col-sm-6
+                    .col-sm-6 Level 2: .col-sm-6
+
+          h2#navbar Navbar
+          .example
+            .navbar
+              .container-fluid
+                .navbar-brand
+                  a(href='#') Brand
+                ul.nav.navbar-right
+                  li
+                    a.selected(href='#') Link
+                  li
+                    a(href='#') Link
+                  li
+                    a(href='#') Link
+                ul.nav.navbar-left
+                  li
+                    a.selected(href='#') Link
+                  li
+                    a(href='#') Link
+                  li
+                    a(href='#') Link
+                ul.nav.navbar-right
+                  li
+                    a(href='#') Link
+                  li
+                    span
+                      a.button.button-sm.button-success(href='#') Link
+                  li
+                    a(href='#') Link
+                ul.nav.navbar-left.navbar-main
+                  li
+                    a.selected(href='#') Link
+                  li
+                    a(href='#') Link
+                  li
+                    a(href='#') Link
+
+          h2#pagination Pagination
+          .example
+            .pagination
+              a.disabled(href='#') Previous
+              a.selected(href='#') 1
+              a(href='#') 2
+              a(href='#') 3
+              a(href='#') 4
+              a(href='#') 5
+              a(href='#') Next
+
+          h2#alerts Alerts
+          .example
+            .alerts
+              .alert.alert-info
+                a.close(href='#') &times;
+                | Alert Message
+              .alert.alert-warn
+                a.close(href='#') &times;
+                p Alert Message
+              .alert.alert-error
+                a.close(href='#') &times;
+                | Alert Message

@@ -1,0 +1,91 @@
+// Functions
+// -----------------------------------------------------------------------------
+
+// Calculate em size from px size
+
+@function em-size($px-size, $base-px-size: $font-size-base) {
+  @return ($px-size / $base-px-size * 1em);
+}
+
+// Get screen-min size
+
+@function screen-min-size($name) {
+  @if $name == lg {
+    @return $screen-lg-min;
+  }
+  @if $name == md {
+    @return $screen-md-min;
+  }
+  @if $name == sm {
+    @return $screen-sm-min;
+  }
+  @return false;
+}
+
+
+// Mixins
+// -----------------------------------------------------------------------------
+
+// Set left and right margin
+
+@mixin margin-x($width) {
+  margin-left: $width;
+  margin-right: $width;
+}
+
+// Set top and bottom margin
+
+@mixin margin-y($height) {
+  margin-top: $height;
+  margin-bottom: $height;
+}
+
+// Text-overflow shorthands.
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Linear gradient shorthands.
+
+@mixin linear-gradient($start-color, $end-color) {
+  background-color: $end-color;
+  background-image: linear-gradient($start-color, $end-color);
+}
+
+
+// Links
+// -----------------------------------------------------------------------------
+
+@mixin link-force($selector) {
+  &:link,
+  &:visited {
+    @extend #{$selector};
+  }
+}
+
+@mixin link-hover($selector) {
+  &:hover,
+  &:focus,
+  &:active {
+    @extend #{$selector};
+  }
+}
+
+@mixin link-selected($selector) {
+  &.selected,
+  &.selected:hover {
+    @extend #{$selector};
+  }
+}
+
+@mixin link-disabled($selector) {
+  &.disabled,
+  &.disabled:hover,
+  &:disabled,
+  &:disabled:hover {
+    @extend #{$selector};
+  }
+}

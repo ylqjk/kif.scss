@@ -1,0 +1,94 @@
+// Base
+// -----------------------------------------------------------------------------
+
+// Reset the box-sizing
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// Body reset
+
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font: #{$font-size-base}/#{$line-height-ratio} $font-family-base;
+  color: $text-color;
+  background-color: $bg-color;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// Links
+
+%link-colors {
+  &:link {
+    color: $link-color;
+  }
+
+  &:visited {
+    color: $link-visited-color;
+  }
+}
+
+%link-force {
+  text-decoration: none;
+}
+
+%link-hover {
+  text-decoration: underline;
+}
+
+a {
+  @extend %link-colors;
+  @include link-force('%link-force');
+  @include link-hover('%link-hover');
+}
+
+// Images
+
+img {
+  vertical-align: middle;
+}
+
+// Responsive image
+
+@mixin img-responsive() {
+  width: 100% \9; // Force IE10 and below to size SVG images correctly
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+%img-responsive { @include img-responsive(); }
+
+@if $style-img-responsive {
+  .img-responsive { @extend %img-responsive; }
+}
+
+// Horizontal rules
+
+hr {
+  @extend %type-block;
+  border: 0;
+  border-top: 1px solid $divider-color;
+}

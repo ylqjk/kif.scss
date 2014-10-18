@@ -1,0 +1,64 @@
+%alerts {
+  margin-top: (-$pill-padding-x-em);
+}
+
+%alert {
+  margin-top: $pill-padding-x-em;
+  padding: $pill-padding-x-em;
+  border: $pill-border-width solid;
+  border-radius: $pill-border-radius;
+
+  > p {
+    @include margin-y(0);
+  }
+}
+
+@mixin alert-color($text, $bg, $border) {
+  border-color: $border;
+  color: $text;
+  background-color: $bg;
+}
+
+%alert-info {
+  @include alert-color($alert-info, $alert-info-bg, $alert-info-border);
+}
+
+%alert-warn {
+  @include alert-color($alert-warn, $alert-warn-bg, $alert-warn-border);
+}
+
+%alert-error {
+  @include alert-color($alert-error, $alert-error-bg, $alert-error-border);
+}
+
+%alert-close {
+  float: right;
+}
+
+%close {
+  color: inherit;
+  font-size: $line-height-em;
+  font-weight: bold;
+  line-height: 1;
+  opacity: 0.3;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    opacity: 0.6;
+    text-decoration: none;
+  }
+}
+
+@if $style-alert {
+  .alerts { @extend %alerts; }
+  .alert { @extend %alert; }
+  .close { @extend %close; }
+  .alert > .close { @extend %alert-close; }
+}
+
+@each $style-alert-item in $style-alert {
+  .alert-#{$style-alert-item} { @extend %alert-#{$style-alert-item}; }
+}

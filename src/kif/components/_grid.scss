@@ -1,0 +1,167 @@
+// Grid system
+// -----------------------------------------------------------------------------
+
+@mixin container-fluid($gutter: $grid-gutter-width) {
+  @include center-block();
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @extend %clearfix;
+}
+
+%container-fluid {
+  @include container-fluid();
+}
+
+@mixin container-fluid-nopadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+%container-fluid-nopadding {
+  @include container-fluid-nopadding();
+}
+
+%container {
+  @extend %container-fluid;
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+@mixin row($gutter: $grid-gutter-width) {
+  @include margin-x($gutter / -2);
+  @extend %clearfix;
+}
+
+%row {
+  @include row();
+}
+
+@mixin col-base($gutter: $grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+%col-base {
+  @include col-base();
+}
+
+@mixin make-grid-base($prefix, $index) {
+  @if ($index > 0) {
+    #{$prefix}#{$index} {
+      @extend %col-base;
+    }
+  }
+}
+
+@mixin make-grid-column($prefix, $index, $columns: $grid-columns) {
+  @if ($index > 0) {
+    #{$prefix}#{$index} {
+      width: percentage($index / $columns);
+    }
+  }
+}
+
+@mixin make-grid-offset($prefix, $index, $columns: $grid-columns) {
+  #{$prefix}#{$index} {
+    margin-left: percentage($index / $columns);
+  }
+}
+
+@mixin loop-grid-columns($prefix, $type, $columns: $grid-columns) {
+  $selectors: "";
+  @for $index from 0 through $columns {
+    @if (($type != base and $type != column) or ($index > 0)) {
+      $selector: #{$prefix}#{$index};
+      $selectors: if($selectors == '', $selector, "#{$selectors}, #{$selector}");
+    }
+    @if ($type == base) {
+      @include make-grid-base($prefix, $index);
+    }
+    @if ($type == column) {
+      @include make-grid-column($prefix, $index, $columns);
+    }
+    @if ($type == offset) {
+      @include make-grid-offset($prefix, $index, $columns);
+    }
+  }
+  @if ($type == column) {
+    #{$selectors} {
+      float: left;
+    }
+  }
+}
+
+@mixin make-columns-base($prefix, $columns: $grid-columns) {
+  @include loop-grid-columns("#{$prefix}-", base, $columns);
+}
+
+@mixin make-columns($prefix, $columns: $grid-columns) {
+  @include loop-grid-columns("#{$prefix}-", column, $columns);
+  @include loop-grid-columns("#{$prefix}-offset-", offset, $columns);
+}
+
+@include make-columns-base("%col-xs");
+@include make-columns("%col-xs");
+
+@include make-columns-base("%col-sm");
+@media (min-width: $screen-sm-min) {
+  @include make-columns("%col-sm");
+  %hidden-sm-min { display: none; }
+}
+
+@include make-columns-base("%col-md");
+@media (min-width: $screen-md-min) {
+  @include make-columns("%col-md");
+  %hidden-md-min { display: none; }
+}
+
+@include make-columns-base("%col-lg");
+@media (min-width: $screen-lg-min) {
+  @include make-columns("%col-lg");
+  %hidden-lg-min { display: none; }
+}
+
+@media (max-width: $screen-xs-max) {
+  %hidden-xs-max { display: none; }
+}
+
+@media (max-width: $screen-sm-max) {
+  %hidden-sm-max { display: none; }
+}
+
+@media (max-width: $screen-md-max) {
+  %hidden-md-max { display: none; }
+}
+
+@if $style-grid {
+  .container { @extend %container; }
+  .row { @extend %row; }
+}
+
+@each $style-grid-item in $style-grid {
+  $grid-screen-size: screen-min-size($style-grid-item);
+
+  @if $grid-screen-size {
+    @include make-columns-base(".col-#{$style-grid-item}");
+    @media (min-width: $grid-screen-size) {
+      @include make-columns(".col-#{$style-grid-item}");
+    }
+  } @else if $style-grid-item == xs {
+    @include make-columns-base(".col-xs");
+    @include make-columns(".col-xs");
+  }
+}

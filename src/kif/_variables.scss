@@ -1,0 +1,139 @@
+// Styles
+// -----------------------------------------------------------------------------
+
+$style-img-responsive: true !default;
+$style-list-inline:    true !default;
+$style-dl-horizontal:  sm !default;
+$style-nav:            inline stacked pills !default;
+$style-button:         sm default primary success danger !default;
+$style-button-link:    true !default;
+$style-field:          default sm checkbox radio !default;
+$style-note:           success error !default;
+$style-field-group:    group row col sm !default;
+$style-field-form:     default error notice inline !default;
+$style-grid:           xs sm md lg !default;
+$style-navbar:         sm !default;
+$style-pagination:     true !default;
+$style-alert:          info warn error !default;
+
+
+// Colors
+// -----------------------------------------------------------------------------
+
+$color-white:           #fff; // hsl(0, 0%, 100%)
+$color-black:           #000; // hsl(0, 0%, 0%)
+
+$color-gray-darker:     #333 !default; // hsl(0, 0%, 20%)
+$color-gray-dark:       #777 !default; // hsl(0, 0%, 47%)
+$color-gray:            #aaa !default; // hsl(0, 0%, 67%)
+$color-gray-light:      #ddd !default; // hsl(0, 0%, 87%)
+$color-gray-lighter:    #eee !default; // hsl(0, 0%, 93%)
+
+$text-color:            $color-gray-darker !default;
+$secondary-text-color:  $color-gray-dark !default;
+$hint-text-color:       $color-gray !default;
+$divider-color:         $color-gray-light !default;
+$bg-color:              $color-white !default;
+
+$link-color:            hsl(210, 53%, 51%) !default;
+$link-visited-color:    hsl(270, 67%, 45%) !default;
+$focus-color:           hsl(206, 77%, 61%) !default;
+
+$pill-hover-bg:         $color-gray-lighter !default;
+$pill-selected-bg:      $link-color !default;
+$pill-selected-text:    $color-white !default;
+$pill-selected-bold:    false !default;
+
+$button-default-border: hsl(0, 0%, 84%) !default;
+$button-default-light:  hsl(0, 0%, 99%) !default;
+$button-default-dark:   hsl(0, 0%, 93%) !default;
+$button-default-text:   $text-color !default;
+
+$button-primary-border: hsl(210, 58%, 40%) !default;
+$button-primary-light:  hsl(206, 54%, 58%) !default;
+$button-primary-dark:   hsl(210, 58%, 45%) !default;
+
+$button-success-border: hsl(112, 42%, 47%) !default;
+$button-success-light:  hsl(104, 62%, 65%) !default;
+$button-success-dark:   hsl(104, 44%, 48%) !default;
+$button-success-text:   hsl(100, 100%, 30%) !default;
+
+$button-danger-border:  hsl(3, 58%, 55%) !default;
+$button-danger-light:   hsl(3, 65%, 61%) !default;
+$button-danger-dark:    hsl(3, 58%, 45%) !default;
+$button-danger-text:    hsl(0, 100%, 30%) !default;
+
+$alert-info:            hsl(210, 50%, 27%) !default;
+$alert-info-bg:         hsl(210, 52%, 90%) !default;
+$alert-info-border:     hsl(210, 22%, 78%) !default;
+
+$alert-warn:            hsl(48, 7%, 28%) !default;
+$alert-warn-bg:         hsl(43, 100%, 96%) !default;
+$alert-warn-border:     hsl(46, 31%, 82%) !default;
+
+$alert-error:           hsl(0, 80%, 33%) !default;
+$alert-error-bg:        hsl(0, 83%, 93%) !default;
+$alert-error-border:    hsl(0, 26%, 76%) !default;
+
+
+// Sizes
+// -----------------------------------------------------------------------------
+
+$screen-sm-min:          768px !default;
+$screen-md-min:          992px !default;
+$screen-lg-min:          1200px !default;
+$gutter-width:           5px  !default;
+
+$font-family-base:       sans-serif !default;
+$font-size-base:         13px !default;
+$line-height-base:       19px !default;
+
+$font-size-h1-ratio:     2 !default;
+$font-size-h2-ratio:     1.75 !default;
+$font-size-h3-ratio:     1.5 !default;
+$font-size-h4-ratio:     1.25 !default;
+$font-size-h5-ratio:     1 !default;
+$font-size-h6-ratio:     (2 / 3) !default;
+
+$list-inline-gutter:     ($gutter-width * 2) !default;
+$dl-horizontal-gutter:   ($gutter-width * 2) !default;
+$dl-horizontal-offset:   ($screen-sm-min / 5) !default;
+
+$pill-padding-x:         12px !default;
+$pill-padding-y:         7px !default;
+$pill-padding-sm-x:      8px !default;
+$pill-padding-sm-y:      3px !default;
+$pill-border-width:      1px !default;
+$pill-border-radius:     3px !default;
+$pill-gutter-width:      $gutter-width !default;
+
+$grid-columns:           12 !default;
+$grid-gutter-width:      30px !default;
+
+$container-ratio: (1 - $grid-gutter-width / $screen-lg-min) !default;
+$container-sm: round($screen-sm-min * $container-ratio / 10) * 10 !default;
+$container-md: round($screen-md-min * $container-ratio / 10) * 10 !default;
+$container-lg: round($screen-lg-min * $container-ratio / 10) * 10 !default;
+
+$navbar-padding:         ($line-height-base / 2) !default;
+
+
+// Computed values
+// -----------------------------------------------------------------------------
+
+$line-height-ratio: ($line-height-base / $font-size-base);
+$line-height-em:    em-size($line-height-base);
+$gutter-ratio:      ($gutter-width / $font-size-base);
+$gutter-em:         em-size($gutter-width);
+
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+$pill-padding-x-em:    em-size($pill-padding-x);
+$pill-padding-y-em:    em-size($pill-padding-y);
+$pill-padding-sm-x-em: em-size($pill-padding-sm-x);
+$pill-padding-sm-y-em: em-size($pill-padding-sm-y);
+$pill-gutter-em:       em-size($pill-gutter-width);
+
+$navbar-padding-em:    em-size($navbar-padding);

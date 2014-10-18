@@ -1,0 +1,14 @@
+{
+  "name": "kif.scss",
+  "version": "0.0.0",
+  "description": "kif.scss is scss library.",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-jade": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-autoprefixer": "*"
+  }
+}

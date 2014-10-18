@@ -1,0 +1,53 @@
+@import "kif/kif";
+
+.example {
+  margin: 15px 0;
+  padding: 15px;
+  border: 1px solid hsl(0, 0%, 87%);
+  border-radius: 4px 4px 0 0;
+  position: relative;
+
+  &:after {
+    padding: 5px 15px;
+    border: solid hsl(0, 0%, 87%);
+    border-width: 0 0 1px 1px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    font-size: 11px;
+    color: hsl(0, 0%, 58%);
+    background-color: hsl(0, 0%, 93%);
+    text-transform: lowercase;
+    content: "Example";
+  }
+}
+
+.example-colors {
+  span {
+    padding: 5px;
+  }
+}
+
+.color-text      { color: $text-color; }
+.color-secondary { color: $secondary-text-color; }
+.color-hint      { color: $hint-text-color; }
+.color-divider   { color: $divider-color; }
+.color-link      { color: $link-color; }
+.color-visited   { color: $link-visited-color; }
+
+.example-grid {
+  $example-grid-color: hsl(264, 34%, 36%);
+  $example-grid-border-color: transparentize($example-grid-color, 0.8);
+  $example-grid-bg-color: transparentize($example-grid-color, 0.85);
+
+  [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid;
+    border-color: mix(#fff, $example-grid-color, 80%);
+    border-color: $example-grid-border-color;
+    background-color: mix(#fff, $example-grid-color, 85%);
+    background-color: transparentize($example-grid-color, 0.85);
+  }
+}
