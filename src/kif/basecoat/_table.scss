@@ -1,0 +1,11 @@
+%table {
+  th,
+  td {
+    padding: $pill-padding-y-em $pill-padding-x-em;
+    border: $pill-border-width solid $divider-color;
+  }
+}
+
+@if $style-nav {
+  .table { @extend %table; }
+}
