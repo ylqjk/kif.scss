@@ -246,6 +246,7 @@
   background-color: $bg-color;
   color: $text-color;
   box-shadow: inset 0 1px 2px hsla(0, 0%, 0%, 0.075);
+  height: $line-height-em + em-size($pill-padding-y + $pill-border-width) * 2;
 
   &:focus {
     border-color: $focus-color;
@@ -256,6 +257,7 @@
 
 %field-sm {
   padding: $pill-padding-sm-y-em $pill-padding-sm-x-em;
+  height: $line-height-em + em-size($pill-padding-sm-y + $pill-border-width) * 2;
 }
 
 ::placeholder {
@@ -265,27 +267,10 @@
 %field-text {
   background-color: hsl(0, 0%, 98%);
   max-width: 100%;
-  @supports (-webkit-appearance:none) {
-    padding-bottom: em-size($pill-padding-y - 1px);
-  }
 
   &:focus {
     background-color: $color-white;
   }
-}
-
-%field-text-sm {
-  @supports (-webkit-appearance:none) {
-    padding-bottom: em-size($pill-padding-sm-y - 1px);
-  }
-}
-
-%field-select {
-  height: $line-height-em + em-size($pill-padding-y + $pill-border-width) * 2;
-}
-
-%field-select-sm {
-  height: $line-height-em + em-size($pill-padding-sm-y + $pill-border-width) * 2;
 }
 
 // checkbox, radio button
@@ -309,18 +294,8 @@
     textarea {
       &.field { @extend %field-text; }
     }
-    select {
-      &.field { @extend %field-select; }
-    }
   } @else if $style-field-item == sm {
     .field-sm { @extend %field-sm; }
-    input,
-    textarea {
-      &.field-sm { @extend %field-text-sm; }
-    }
-    select {
-      &.field-sm { @extend %field-select-sm; }
-    }
   } @else {
     .#{$style-field-item} { @extend %field-#{$style-field-item}; }
   }
@@ -455,6 +430,7 @@
   > %field-col {
     display: table-cell;
     width: 1%;
+    vertical-align: middle;
 
     > %button,
     > %field {
@@ -494,9 +470,6 @@
     .group-sm {
       .button { @extend %button-sm; }
       .field { @extend %field-sm; }
-      input.field,
-      textarea.field { @extend %field-text-sm; }
-      select.field { @extend %field-select-sm; }
     }
   } @else {
     .field-#{$style-field-group-item} { @extend %field-#{$style-field-group-item}; }
